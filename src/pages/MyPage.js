@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const MyPage = () => {
   return (
     <div>
-      
+      <div>내 정보</div>
     </div>
   );
 };
