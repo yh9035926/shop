@@ -1,37 +1,21 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Root from "./pages/Root";
-import ErrorPage from "./pages/ErrorPage";
+
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
-import ProductRoot from "./pages/ProductRoot";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
-import AuthPage from "./pages/AuthPage";
+
 import MyPage from "./pages/MyPage";
 
 const router = createBrowserRouter([
+  { path: "/", element: <HomePage></HomePage> },
+  { path: "/products", element: <ProductsPage></ProductsPage> },
   {
-    path: "/",
-    element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      { index: true, element: <HomePage></HomePage> },
-      {
-        path: "products",
-        element: <ProductRoot></ProductRoot>,
-        children: [
-          { index: true, element: <ProductsPage></ProductsPage> },
-          {
-            path: ":productId",
-            element: <ProductDetailPage></ProductDetailPage>,
-          },
-        ],
-      },
-      { path: "cart", element: <CartPage></CartPage> },
-      { path: "auth", element: <AuthPage></AuthPage> },
-      { path: "mypage/:userId", element: <MyPage></MyPage> },
-    ],
+    path: "/products/:productId",
+    element: <ProductDetailPage></ProductDetailPage>,
   },
+  { path: "/mypage/:userId", element: <MyPage></MyPage> },
+  { path: "/cart", element: <CartPage></CartPage> },
 ]);
 
 function App() {

@@ -5,7 +5,7 @@ import { LOG_IN_REQUEST } from "../reducer/user";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-function AuthPage() {
+function LoginPopup() {
   const dispatch = useDispatch();
   const navigator = useNavigate();
 
@@ -89,7 +89,7 @@ function AuthPage() {
     </LoginContainer>
   );
 }
-export default AuthPage;
+export default LoginPopup;
 
 const LoginContainer = styled.div`
   max-width: 400px;
